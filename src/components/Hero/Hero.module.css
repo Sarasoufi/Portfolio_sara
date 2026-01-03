@@ -1,0 +1,348 @@
+
+.hero {
+  position: relative; /* 🔴 ضروري جدا */
+  display: flex; /* flex container */
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between; /* توزيع المساحة بين النص والصورة */
+  min-height: 100vh;
+  padding: 0 80px;
+  background: #000000;
+  color: white;
+  overflow: hidden;
+}
+
+
+
+
+.navWrapper {
+  position: absolute; /* تجعل Navbar فوق كل شيء */
+  top: 20px;
+  left: 0;
+  width: 100%;
+  z-index: 100; /* أعلى من النص والصورة */
+}
+
+
+
+.text {
+  max-width: 720px;
+  /* اسحب النص قليلاً لليسار */
+  margin: 0 0 0 60px; /* top right bottom left = left = 60px */
+  text-align: left;
+  padding-top: 60px;
+  position: relative;
+}
+
+
+
+.title {
+  font-family: 'Preahvihear', sans-serif;
+  font-size: 48px;
+  text-align: left;
+  padding-top: 12px;
+  margin: 0 0 12px 0;
+}
+.name { color: #6a0377; }
+
+.subtitle {
+  font-size: 1.35rem;
+  color: #9b9b9b;
+  margin: 0 0 16px;
+}
+
+.description {
+  font-size: 1rem;
+  color: #cfcfcf;
+  margin: 0 0 28px;
+  line-height: 1.5;
+}
+
+
+/* typing */
+.typingLine { display: inline-block; white-space: pre-wrap; }
+.char {
+  opacity: 0;
+  transform: translateY(8px);
+  display: inline-block;
+  transition: opacity 120ms linear, transform 120ms linear;
+}
+.visible { opacity: 1; transform: translateY(0); }
+.caret {
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  background: #cfcfcf;
+  margin-left: 4px;
+  vertical-align: bottom;
+  animation: blink 1s steps(1) infinite;
+  opacity: .9;
+}
+@keyframes blink { 50% { opacity: 0 } }
+
+
+
+
+
+
+
+
+
+
+
+.imageWrapper {
+   margin-left: auto; /* يدفع الصورة لأقصى اليمين */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageWrapper img {
+  width: 420px;
+  border-radius: 14px;
+}
+.hero img {
+  width: 360px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+
+  border-radius: 50%;
+ 
+
+  /* تأثير الإضاءة حول الصورة */
+  box-shadow: 0 0 20px #6a0377, 0 0 40px #0e090e, 0 0 60px #6a0377;
+
+  filter: brightness(1.15) contrast(1.15);
+ 
+  transition:
+    transform 0.5s ease,
+    box-shadow 0.5s ease,
+    filter 0.5s ease;
+}
+@keyframes imageReveal {
+  from {
+    opacity: 0;
+    transform: translateX(60px) scale(0.9); /* دخول من اليمين */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+.hero img:hover {
+  
+  filter: brightness(1.25) contrast(1.2);
+  box-shadow: 0 0 30px 15px rgba(49, 48, 49, 0.55);
+
+}
+
+
+
+
+
+
+
+
+/* Animation */
+@keyframes arrowMove {
+  0% {
+    transform: rotate(-45deg) translate(0, 0);
+  }
+  50% {
+    transform: rotate(-45deg) translate(6px, 6px);
+  }
+  100% {
+    transform: rotate(-45deg) translate(0, 0);
+  }
+}
+
+
+.arrow {
+
+  position: absolute;
+  
+  /* مكانه بين النص والصورة */
+  left: 55%;
+  top: 50%;
+
+  width: 50px;
+  height: 50px;
+  border-right: 3px solid #6a0377;
+  border-bottom: 3px solid #6a0377;
+
+   transform: rotate(45deg);
+  animation: arrowMove 1.6s infinite ease-in-out;
+  
+  opacity: 0.75;
+
+
+}
+
+@keyframes arrowMove {
+  0% {
+    transform: rotate(-45deg) translate(0, 0);
+  }
+  50% {
+    transform: rotate(-45deg) translate(6px, 6px);
+  }
+  100% {
+    transform: rotate(-45deg) translate(0, 0);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+.text h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: left;
+  margin: 0 0 8px 0;
+}
+
+
+
+
+
+.text h3 {
+  font-family: 'Preahvihear', sans-serif;
+  font-size: 1.8rem;
+  font-weight: normal;
+  color: #787779;
+  text-align: left;
+   
+}
+
+.text p {
+  font-family: 'Preahvihear', sans-serif;
+  font-size: 0.9rem;
+  font-weight: normal;
+  color: #cccccc;
+  text-align: left; 
+}
+
+
+/* Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  margin-left: 90px;
+  justify-content: flex-start;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 420ms cubic-bezier(.22,.9,.29,1), transform 420ms cubic-bezier(.22,.9,.29,1);
+  pointer-events: none;
+}
+
+.showButtons {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.buttons button {
+ padding: 1.4rem 2.8rem; 
+border: none;
+border-radius: 12px;
+background: #0f0f11; 
+color: #faf8f8;
+cursor: pointer;
+font-size: 1.05rem;
+transition: transform 180ms ease, box-shadow 180ms ease;
+will-change: transform, box-shadow;
+box-shadow: 0 6px 16px rgba(255, 11, 255, 0.18);
+
+}
+
+
+
+.buttons button:hover,
+.buttons button:focus {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 30px rgba(144, 145, 146, 0.45); /* ombre bleu clair */
+  outline: none;
+}
+
+.buttons button:active {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 18px rgba(173,216,230,0.35);
+}
+
+.outline {
+  background: transparent;
+  color: #e30bff;
+  border: 2px solid #e30bff;
+}
+.outline:hover,
+.outline:focus {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 30px rgba(173,216,230,0.4);
+}
+@media (max-width: 900px) {
+  .text {
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 40px;
+  }
+  .title, .text h1, .text h3, .text p {
+    text-align: center;
+  }
+  .buttons {
+    margin-left: 0;
+    justify-content: center;
+  }
+}
+
+
+.role {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;            /* مسافة بين الأيقونة والنص */
+}
+
+.roleIcon {
+  width: 38px;          /* اضبط الحجم حسب الحاجة */
+  height: 38px;
+  object-fit: contain;
+  display: inline-block;
+  transform: translateY(2px); /* محاذاة بصريّة مع نص الـTyping */
+  filter: drop-shadow(0 6px 12px rgba(11,116,255,0.12)); /* ظل خفيف ليبدو كـلوغو */
+}
+
+/* استجابة */
+@media (max-width: 900px) {
+  .roleIcon { width: 30px; height: 30px; }
+  .role { gap: 8px; }
+}
+
+
+
+
+

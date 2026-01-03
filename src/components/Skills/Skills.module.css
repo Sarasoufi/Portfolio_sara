@@ -1,0 +1,154 @@
+.skills {
+  padding: 80px;
+  text-align: center;
+  color: rgb(153, 152, 152);
+  font-family: 'Preahvihear', sans-serif;
+  font-size: 22px;
+
+}
+.card {
+  margin: 35px auto;
+  padding: 30px;
+  width: 65%;
+  border-radius: 18px;
+
+  background: #0b0b0b;
+  position: relative;
+
+  animation: fadeUp 1s ease forwards;
+  opacity: 0;
+  transform: translateY(40px);
+
+  transition:
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.5s ease;
+}
+
+/* Glow */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 22px;
+  background: var(--glow);
+  z-index: -1;
+  filter: blur(10px);
+  opacity: 0.85;
+  transition: opacity 0.4s ease;
+}
+
+/* Hover animation */
+.card:hover {
+  transform: translateY(-16px) scale(1.08);
+  box-shadow: 0 30px 60px rgba(121, 2, 125, 0.6);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+
+
+/* Text */
+.card h3 {
+  font-size: 26px;
+  margin-bottom: 20px;
+  
+  font-family: 'Preahvihear', sans-serif;
+}
+
+.part h4 {
+  color: #6a0377;
+  margin-bottom: 6px;
+}
+
+.part p {
+  opacity: 0.85;
+}
+
+/* === Glow Colors === */
+
+.cardWeb {
+  --glow: linear-gradient(135deg, #000000, #000000);
+  box-shadow: 0 0 25px rgba(199, 198, 198, 0.35);
+  animation-delay: 0.2s;
+}
+
+.cardBackend {
+  --glow: linear-gradient(135deg, #000000, #000000);
+  box-shadow: 0 0 25px rgba(199, 198, 198, 0.35);
+  animation-delay: 0.4s;
+}
+
+.cardApp {
+  --glow: linear-gradient(135deg, #000000, #000000);
+  box-shadow: 0 0 25px rgba(199, 198, 198, 0.35);
+  animation-delay: 0.6s;
+}
+
+.cardTools {
+  --glow: linear-gradient(135deg, #000000, #000000);
+  box-shadow: 0 0 25px rgba(199, 198, 198, 0.35);
+  animation-delay: 0.8s;
+}
+
+/* Animation */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ...existing code... (keep your previous card/.skills styles) ... */
+/* ajustements pour logos SVG réels */
+.techList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.techItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,0.03);
+  padding: 10px 12px;
+  border-radius: 10px;
+  min-width: 160px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.techItem:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 36px rgba(127, 164, 237, 0.126);
+}
+
+/* icone SVG réelles */
+.techIcon {
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  display: block;
+}
+
+/* titres petits */
+.techItem h4 {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+
+.small {
+  margin: 0;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.65);
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .techItem { min-width: 48%; }
+  .techIcon { width: 28px; height: 28px; }
+  .techItem h4 { font-size: 0.95rem; }
+}

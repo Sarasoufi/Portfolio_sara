@@ -1,0 +1,153 @@
+.work {
+  padding: 80px;
+  color: white;
+  background: #000000;
+  text-align: center;
+}
+.work h2 {
+  display: inline-block; /* مهم جداً */
+  font-size: 35px;
+  font-weight: 600;
+  text-align: center;
+  
+  font-family: 'Preahvihear', sans-serif;
+
+  padding: 8px 40px;
+  margin: 0 auto 20px;
+
+  color: #949292;
+  font-family: 'Preahvihear', sans-serif;
+
+  background: linear-gradient(135deg, #000000, #000000);
+  border-radius: 40px;
+
+  position: relative;
+  transition: all 0.4s ease;
+}
+.work h2::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50px;
+
+  background: linear-gradient(
+    90deg,
+    #28002d,
+    rgba(30, 31, 31, 0.6)
+  );
+
+  filter: blur(18px);
+  opacity: 0;
+  z-index: -1;
+
+  transition: opacity 0.4s ease;
+}
+
+.work h2:hover::after {
+  opacity: 1;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 18px;
+  color: #767272;
+  margin-bottom: 60px;
+  letter-spacing: 0.5px;
+  font-family: 'Preahvihear', sans-serif;
+}
+.work h2,
+.subtitle {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeTitle 1s ease forwards;
+  font-family: 'Preahvihear', sans-serif;
+}
+
+.subtitle {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeTitle {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+/* الحالة قبل الظهور */
+.card {
+  background: #0b0a0a;
+  border-radius: 18px;
+  padding: 25px;
+
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+
+  transition: all 0.8s ease;
+}
+
+/* عند الظهور */
+.card.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  box-shadow: 0 0 10px #302d30b9, 0 0 10px #0e090e, 0 0 20px #4f1e4fa5;
+}
+
+.card h3 {
+  color: #ffffff;
+  margin-bottom: 18px;
+  font-family: 'Preahvihear', sans-serif;
+  
+  
+}
+
+.description {
+  color: #ddd;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tech li {
+  background: #2a2a2a;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.links {
+  display: flex;
+  gap: 15px;
+}
+
+.links a {
+  border: 1px solid #d725eb;
+  padding: 8px 16px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.links a:hover {
+  background: #949394;
+  color: black;
+}
+
+.demo {
+  background: #eb25e5;
+  color: black !important;
+}
+
