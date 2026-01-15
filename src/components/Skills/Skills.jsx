@@ -27,7 +27,8 @@ function TechItem({ IconSrc, title, subtitle, alt }) {
 
 export default function Skills() {
   return (
-    <section className={styles.skills}>
+    
+    <section id="skills" className={styles.skills}>
       <h2>Skills & Technologies</h2>
       <h5 className={styles.lead}>
         Overview of my technical stack: web languages, frameworks and tools.

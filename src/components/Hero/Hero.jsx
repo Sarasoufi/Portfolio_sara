@@ -50,6 +50,8 @@ export default function Hero() {
   
 
   return (
+        <section id="home">
+
     <section className={styles.hero}>
       <div className={styles.navWrapper}>
         <Navbar />
@@ -85,12 +87,13 @@ export default function Hero() {
             onComplete={() => setTypingDone(true)}
           />
         </p><br/><br/>
- <div
+        <div
           className={`${styles.buttons} ${typingDone ? styles.showButtons : ""}`}
           aria-hidden={!typingDone}
         >
-          <button className={styles.primary}>View My Work</button>
-          <button className={`${styles.primary} ${styles.outline}`}>Contact Me</button>
+          <a href="#work" className={styles.primary} role="button" tabIndex="0" onClick={(e)=>{const el=e.currentTarget; el.classList.add(styles.clicked); setTimeout(()=>el.classList.remove(styles.clicked),250); const target=document.querySelector('#work'); if(target) target.scrollIntoView({behavior:'smooth', block:'start'});}}>View My Work</a>
+          <a href="#contact" className={`${styles.primary} ${styles.outline}`} role="button" tabIndex="0" onClick={(e)=>{const el=e.currentTarget; el.classList.add(styles.clicked); setTimeout(()=>el.classList.remove(styles.clicked),250); const target=document.querySelector('#contact'); if(target) target.scrollIntoView({behavior:'smooth', block:'start'});}}>Contact Me</a>
+         
         </div>
       </div>
 
@@ -100,6 +103,8 @@ export default function Hero() {
 
       <div className={styles.arrow} />
     </section>
+     </section>
   );
+ 
 }
 // ...existing code...

@@ -64,7 +64,7 @@ export default function Work() {
   }, []);
 
   return (
-    <section className={styles.work}>
+    <section id="work" className={styles.work}>
       <h2>Project Showcase</h2>
       <p className={styles.subtitle}>
         Labs & projects completed during this semester

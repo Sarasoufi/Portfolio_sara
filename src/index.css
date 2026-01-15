@@ -3,3 +3,64 @@ body {
   background: #000000;
   font-family: Arial, sans-serif;
 }
+
+/* Smooth scrolling for anchor navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+:root{
+  --bg: #000000;
+  --surface: #0b0b0d;
+  --muted: #9b9b9b;
+  --text: #ffffff;
+  --accent: #6a0377;
+  --accent-2: #e30bff;
+  --glass: rgba(255,255,255,0.04);
+  --glass-2: rgba(255,255,255,0.06);
+}
+
+*{box-sizing:border-box}
+html,body,#root{height:100%;}
+
+.container{
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 20px;
+}
+
+/* glass surface */
+.glass{
+  background: var(--glass);
+  border: 1px solid var(--glass-2);
+  border-radius:12px;
+  backdrop-filter: blur(8px);
+}
+
+/* strong CTA (Download CV) */
+.btn-cv{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:0.9rem 1.4rem;
+  border-radius:12px;
+  color:var(--text);
+  text-decoration:none;
+  background: linear-gradient(90deg,var(--accent) 0%, var(--accent-2) 100%);
+  box-shadow: 0 10px 30px rgba(106,3,119,0.22), inset 0 -2px 6px rgba(0,0,0,0.25);
+  font-weight:700;
+  transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms;
+}
+.btn-cv:hover{ transform: translateY(-6px); box-shadow: 0 22px 36px rgba(99,10,120,0.28); }
+
+/* utility */
+.muted{ color: var(--muted); }
+.lead{ color: var(--muted); }
+
+/* accessibility: focus ring */
+:focus{ outline: 3px solid rgba(99,10,120,0.18); outline-offset: 4px; }
+
+/* small responsive helpers */
+@media (max-width:700px){
+  .container{ padding:0 14px }
+}
